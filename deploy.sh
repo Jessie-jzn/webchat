@@ -14,6 +14,6 @@ git add -A
 git commit -m 'feature: add'
 
 # 如果发布到 https://<USERNAME>.github.io/<REPO>
-git push -f git@study.github.com:Jessie-jzn/webchat.git main
+git push -f git@study.github.com:Jessie-jzn/webchat.git master
 
 cd -
