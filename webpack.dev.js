@@ -15,7 +15,7 @@ module.exports = smp.wrap(
     },
     devServer: {
       hot: true, //热更新
-      open: true, // 是否打开默认浏览器
+      open: false, // 是否打开默认浏览器
       historyApiFallback: true, // 当使用 [HTML5 History API] 时，任意的 `404` 响应被替代为 `index.html`
       port: 9000, // 启动的端口
       compress: true, // 是否开启代码压缩

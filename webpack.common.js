@@ -18,8 +18,8 @@ module.exports = {
     alias: {
       src: path.resolve(__dirname, 'src'),
       utils: path.resolve(__dirname, 'src/common/utils/'),
-      components: path.resolve(__dirname, 'src/components'),
-      style: path.resolve(__dirname, 'src/common/style/')
+      components: path.resolve(__dirname, 'src/common/components'),
+      styles: path.resolve(__dirname, 'src/common/styles/')
     },
     extensions: ['.ts', '.tsx', '.js', '.json']
   },
@@ -29,11 +29,9 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.s?css$/,
+        test: /\.s?css|less$/,
         use: [
           'style-loader',
-          'postcss-loader',
-          'sass-loader',
           {
             loader: 'css-loader',
             options: {
@@ -53,25 +51,98 @@ module.exports = {
               sourceMap: true
             }
           },
-
           {
-            loader: 'babel-plugin-react-css-modules',
+            loader: require.resolve('postcss-loader'),
             options: {
-              context: path.join(__dirname, '.'),
-              exclude: 'node_modules',
-              filetypes: {
-                '.scss': {
-                  syntax: 'postcss-scss'
-                }
-              }
+              postcssOptions: {
+                plugins: ['autoprefixer'],
+              },
+              sourceMap: true,
+            },
+          },
+          'sass-loader',
+          {
+            loader:'postcss-loader',
+            options: {
+              postcssOptions: {
+                ident: 'postcss',
+                config: false,
+                plugins: [
+                      'postcss-flexbugs-fixes', // 此插件用来修复flexbug的问题
+                      [
+                        'postcss-preset-env', // 包含了autoprefixer
+                        {
+                          autoprefixer: {
+                            flexbox: 'no-2009',
+                          },
+                          // 规定按照哪个阶段的css来实现polyfill
+                          stage: 3, // 默认启用阶段2的功能
+                        },
+                      ],
+                      'postcss-normalize', // PostCSS归一化，使用formantize.css或Sanitize.css的各个部分。
+                ]
+              },
+              // sourceMap: true,
             }
+          },
+          {
+            loader: 'less-loader',
+            options: {
+              lessOptions: {
+                javascriptEnabled: true,
+              },
+              sourceMap: true,
+            },
           }
+  
+
+          // {
+          //   loader: 'babel-plugin-react-css-modules',
+          //   options: {
+          //     context: path.join(__dirname, '.'),
+          //     exclude: 'node_modules',
+          //     filetypes: {
+          //       '.scss': {
+          //         syntax: 'postcss-scss'
+          //       }
+          //     }
+          //   }
+          // }
         ],
         // 注意，所有导入文件都会受到 tree shaking 的影响。
         // 这意味着，如果在项目中使用类似 css-loader 并 import 一个 CSS 文件，
         // 则需要将其添加到 side effect 列表中，以免在生产模式中无意中将它删除：
         sideEffects: true
       },
+      // {
+      //   test: /\.less$/,
+      //   use: [
+      //     {
+      //       loader: 'css-loader',
+      //       options: {
+      //         sourceMap: true,
+      //       },
+      //     },
+      //     {
+      //       loader: 'postcss-loader',
+      //       options: {
+      //         postcssOptions: {
+      //           plugins: ['autoprefixer'],
+      //         },
+      //         sourceMap: true,
+      //       },
+      //     },
+      //     {
+      //       loader: 'less-loader',
+      //       options: {
+      //         lessOptions: {
+      //           javascriptEnabled: true,
+      //         },
+      //         sourceMap: true,
+      //       },
+      //     },
+      //   ],
+      // },
       {
         test: /\.(png|jpe?g|gif|svg|mp3|mp4|mov|wav|wma|avi|flv)$/i,
         type: 'asset/inline',

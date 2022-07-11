@@ -1,0 +1,107 @@
+.folded {
+    transform: translateX(-240px);
+}
+
+.sider-warp {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    z-index: 99;
+}
+
+.sider-content {
+    height: 100%;
+    box-sizing: border-box;
+    background-color: red;
+    padding: 12px 0;
+    width: 20%;
+}
+
+.sider-indicator-box {
+    left: 240px;
+    width: 14px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    z-index: 99;
+
+    .root-box {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        .left {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 1px;
+            height: 100%;
+            background-color: #e5e5e5;
+            transition-property: background-color, width;
+            transition-duration: 200ms;
+            transition-timing-function: ease-in-out;
+            cursor: pointer;
+        }
+
+        .indicator {
+            margin-top: -44.5px;
+            width: 100%;
+            height: 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            border-radius: 0 4px 4px 0;
+            border: 1px solid #e5e5e5;
+            border-left-color: transparent;
+            opacity: 1;
+            transition-property: background-color, opacity;
+            transition-duration: 200ms;
+            transition-timing-function: ease-in-out;
+        }
+
+        .direction {
+            transform: rotate(-180deg);
+            border-radius: 4px 0 0 4px;
+            border: 1px solid #e5e5e5;
+            border-right-color: transparent;
+        }
+
+        .indicator:hover {
+            background-color: #1b9aee;
+            border: none;
+        }
+
+        .indicator::before {
+            transform: rotate(30deg);
+            bottom: -1px;
+        }
+
+        .indicator::after {
+            transform: rotate(-30deg);
+            top: -1px;
+        }
+
+        .indicator::before,
+        .indicator::after {
+            content: "";
+            display: block;
+            position: relative;
+            width: 2px;
+            height: 8px;
+            background-color: #bfbfbf;
+            border-radius: 1px;
+            transition: background-color 300ms ease-in-out;
+        }
+    }
+
+
+}
