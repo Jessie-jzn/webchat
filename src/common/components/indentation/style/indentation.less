@@ -1,27 +1,153 @@
 // @import '../../../styles/_default';
 
-@miao-prefix: miao;
+@nameSpace: miao;
 
-@indentation-prefix-cls: ~'@{miao-prefix}-indentation';
+@prefix-cls: indentation;
+@root-color: #1b9aee;
+@border-color: #e5e5e5;
 
-.miao-indertation-main-box{
+@indertation-background-color: @root-color;
+
+.miao-indertation {
     height: 100%;
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    display: flex;
-    z-index: 99;
-}
-.@{indentation-prefix-cls} {
-    height: 100%;
-    
-    &-main-box{
+    position: relative;
+    width: 100%;
+
+    &-main-box {
         height: 100%;
         position: absolute;
         top: 0;
         bottom: 0;
+        // right: 0;
         display: flex;
         z-index: 99;
+        background: #fff;
     }
-}
 
+    &-indicator-box {
+        width: 14px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        display: flex;
+        align-items: center;
+        z-index: 99;
+    }
+
+    &-root {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+
+    &-line {
+        position: absolute;
+        top: 0;
+        width: 1px;
+        height: 100%;
+        background-color: @border-color;
+        transition-property: background-color, width;
+        transition-duration: 200ms;
+        transition-timing-function: ease-in-out;
+        cursor: pointer;
+
+        &-left {
+            left: 0;
+
+        }
+
+        &-right {
+            right: 0;
+        }
+    }
+
+    &-indicator {
+        margin-top: -44.5px;
+        width: 100%;
+        height: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        border: 1px solid @border-color;
+        opacity: 1;
+        transition-property: background-color, opacity;
+        transition-duration: 200ms;
+        transition-timing-function: ease-in-out;
+
+        &:hover {
+            background-color: @indertation-background-color;
+            border: none;
+        }
+
+
+
+        &::before,
+        &::after {
+            content: "";
+            display: block;
+            position: relative;
+            width: 2px;
+            height: 8px;
+            background-color: #bfbfbf;
+            border-radius: 1px;
+            transition: background-color 300ms ease-in-out;
+        }
+
+        &-left {
+            border-radius: 0 4px 4px 0;
+            border-left-color: transparent;
+
+            &::before {
+                transform: rotate(30deg);
+                bottom: -1px;
+            }
+
+            &::after {
+                transform: rotate(-30deg);
+                top: -1px;
+            }
+        }
+
+        &-right {
+            border-radius: 4px 0px 0px 4px;
+            border-right-color: transparent;
+
+            &::before {
+                transform: rotate(140deg);
+                bottom: -1px;
+            }
+
+            &::after {
+                transform: rotate(-140deg);
+                top: -1px;
+            }
+        }
+    }
+
+    &-direction {
+        transform: rotate(-180deg);
+        border: 1px solid @border-color;
+
+        &-left {
+            border-radius: 4px 0 0 4px;
+            border-right-color: transparent;
+        }
+
+        &-right {
+            border-radius: 0 4px 4px 0;
+            border-left-color: transparent;
+        }
+    }
+
+
+
+
+    &-supporter-box {
+        width: 240px;
+    }
+
+}

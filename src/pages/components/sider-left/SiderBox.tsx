@@ -9,7 +9,9 @@ const SiderBox  = () => {
 
 
   return (<>
-    <Indentation/>
+    <Indentation width={200} placement='left'>
+        <div style={{width:200}}>1111</div>
+    </Indentation>
     </>
   )
 }

@@ -1,0 +1,116 @@
+.miao-indertation {
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+.miao-indertation-main-box {
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  z-index: 99;
+  background: #fff;
+}
+.miao-indertation-indicator-box {
+  width: 14px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  z-index: 99;
+}
+.miao-indertation-root {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.miao-indertation-line {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 100%;
+  background-color: #e5e5e5;
+  transition-property: background-color, width;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+  cursor: pointer;
+}
+.miao-indertation-line-left {
+  left: 0;
+}
+.miao-indertation-line-right {
+  right: 0;
+}
+.miao-indertation-indicator {
+  margin-top: -44.5px;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #e5e5e5;
+  opacity: 1;
+  transition-property: background-color, opacity;
+  transition-duration: 200ms;
+  transition-timing-function: ease-in-out;
+}
+.miao-indertation-indicator:hover {
+  background-color: #1b9aee;
+  border: none;
+}
+.miao-indertation-indicator::before,
+.miao-indertation-indicator::after {
+  content: "";
+  display: block;
+  position: relative;
+  width: 2px;
+  height: 8px;
+  background-color: #bfbfbf;
+  border-radius: 1px;
+  transition: background-color 300ms ease-in-out;
+}
+.miao-indertation-indicator-left {
+  border-radius: 0 4px 4px 0;
+  border-left-color: transparent;
+}
+.miao-indertation-indicator-left::before {
+  transform: rotate(30deg);
+  bottom: -1px;
+}
+.miao-indertation-indicator-left::after {
+  transform: rotate(-30deg);
+  top: -1px;
+}
+.miao-indertation-indicator-right {
+  border-radius: 4px 0px 0px 4px;
+  border-right-color: transparent;
+}
+.miao-indertation-indicator-right::before {
+  transform: rotate(140deg);
+  bottom: -1px;
+}
+.miao-indertation-indicator-right::after {
+  transform: rotate(-140deg);
+  top: -1px;
+}
+.miao-indertation-direction {
+  transform: rotate(-180deg);
+  border: 1px solid #e5e5e5;
+}
+.miao-indertation-direction-left {
+  border-radius: 4px 0 0 4px;
+  border-right-color: transparent;
+}
+.miao-indertation-direction-right {
+  border-radius: 0 4px 4px 0;
+  border-left-color: transparent;
+}
+.miao-indertation-supporter-box {
+  width: 240px;
+}
