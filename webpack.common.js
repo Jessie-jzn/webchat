@@ -16,10 +16,10 @@ module.exports = {
   // 路径别名
   resolve: {
     alias: {
-      src: path.resolve(__dirname, 'src'),
-      utils: path.resolve(__dirname, 'src/common/utils/'),
-      components: path.resolve(__dirname, 'src/common/components'),
-      styles: path.resolve(__dirname, 'src/common/styles/')
+      '@src': path.resolve(__dirname, './src'),
+      '@utils': path.resolve(__dirname, './src/common/utils'),
+      '@components': path.resolve(__dirname, './src/common/components'),
+      '@styles': path.resolve(__dirname, './src/common/styles')
     },
     extensions: ['.ts', '.tsx', '.js', '.json']
   },
@@ -94,55 +94,13 @@ module.exports = {
               sourceMap: true,
             },
           }
-  
-
-          // {
-          //   loader: 'babel-plugin-react-css-modules',
-          //   options: {
-          //     context: path.join(__dirname, '.'),
-          //     exclude: 'node_modules',
-          //     filetypes: {
-          //       '.scss': {
-          //         syntax: 'postcss-scss'
-          //       }
-          //     }
-          //   }
-          // }
         ],
         // 注意，所有导入文件都会受到 tree shaking 的影响。
         // 这意味着，如果在项目中使用类似 css-loader 并 import 一个 CSS 文件，
         // 则需要将其添加到 side effect 列表中，以免在生产模式中无意中将它删除：
         sideEffects: true
       },
-      // {
-      //   test: /\.less$/,
-      //   use: [
-      //     {
-      //       loader: 'css-loader',
-      //       options: {
-      //         sourceMap: true,
-      //       },
-      //     },
-      //     {
-      //       loader: 'postcss-loader',
-      //       options: {
-      //         postcssOptions: {
-      //           plugins: ['autoprefixer'],
-      //         },
-      //         sourceMap: true,
-      //       },
-      //     },
-      //     {
-      //       loader: 'less-loader',
-      //       options: {
-      //         lessOptions: {
-      //           javascriptEnabled: true,
-      //         },
-      //         sourceMap: true,
-      //       },
-      //     },
-      //   ],
-      // },
+  
       {
         test: /\.(png|jpe?g|gif|svg|mp3|mp4|mov|wav|wma|avi|flv)$/i,
         type: 'asset/inline',

@@ -23,13 +23,25 @@
       "strictNullChecks": true,// 在严格的 null检查模式下， null和 undefined值不包含在任何类型里，只允许用它们自己和 any来赋值
       "strictPropertyInitialization": true, // 确保类的非undefined属性已经在构造函数里初始化
       "rootDir": ".",
-      "baseUrl": "src",
+      "baseUrl": ".",
       "outDir": "dist", 
       "jsx": "react", // 在 .tsx 文件里支持 jsx
       "moduleResolution": "node",
+      "resolveJsonModule":true,
+      "paths": {
+        "@/*": ["src/*"],
+        "@@/*": ["src/.umi/*"],
+        "@src/*":["./src/*"],
+        "@components/*":["./src/common/components/*"],
+        "@utils/*":["./src/common/utils"],
+        "@styles/*":["./src/common/styles"],
+      }
     },
     "include": [
       "src",
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      "src/**/*.json",
       "*.d.ts"//配置的.d.ts文件，用于定义一些 declare
     ]
 }

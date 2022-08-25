@@ -2,7 +2,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import ImWorkBox from './pages/index'
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom'
-import 'styles/_index.scss'
+import 'antd/dist/antd.css'
+import '@styles/_index.scss'
+
 const App = () => {
   return (
     <BrowserRouter>

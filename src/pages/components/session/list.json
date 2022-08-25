@@ -1,0 +1,45 @@
+{
+  "ext": null,
+  "result": [
+    {
+      "sessionId": 111,
+      "createTime": "2020-02-15 15:14",
+      "stick": true,
+      "stickTime": "2020-02-15 15:14",
+      "unreadCount": 0,
+      "showNo": 111,
+      "name":"bianyidsde",
+      "avatar":"https://randomuser.me/api/portraits/women/95.jpg",
+      "lastWord":"111111",
+      "lastTime":"2022-08-01 19:39:50"
+    },
+    {
+      "sessionId": 112,
+      "createTime": "2020-02-15 15:14",
+      "stick": true,
+      "stickTime": "2020-02-15 15:14",
+      "unreadCount": 0,
+      "showNo": 111,
+      "name":"bianyidsde",
+      "avatar":"https://randomuser.me/api/portraits/women/95.jpg",
+      "lastWord":"111111",
+      "lastTime":"2022-08-01 19:39:50"
+    },
+    {
+      "sessionId": 113,
+      "createTime": "2020-02-15 15:14",
+      "stick": true,
+      "stickTime": "2020-02-15 15:14",
+      "unreadCount": 0,
+      "showNo": 111,
+      "name":"bianyidsde",
+      "avatar":"https://randomuser.me/api/portraits/women/95.jpg",
+      "lastWord":"111111",
+      "lastTime":"2022-08-01 19:39:50"
+    }
+  ],
+  "tid": null,
+  "success": true,
+  "msg": "SUCCESS",
+  "code": "8000"
+}

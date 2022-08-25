@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useContext} from 'react'
 import classNames from 'classnames'
 import { ConfigContext } from '../config-provider';
 import './style/indentation.less'
@@ -27,12 +27,12 @@ const Indentation: React.FC<IndentationProps> = ({
   indicatorStyle={},
   width
 }) => {
-  const { getPrefixCls } = React.useContext(ConfigContext);
+  const { getPrefixCls } = useContext(ConfigContext);
   const prefixCls = getPrefixCls('indertation', customizePrefixCls);
 
   const [isFolded,setIsFolded] = useState(propsFolded) // 是否折叠，默认false
   const renderBody = () => {
-    return <div style={{visibility: isFolded ? 'hidden' :'visible'}}>{children}</div>
+    return <div style={{visibility: isFolded ? 'hidden' :'visible', width}}>{children}</div>
   }
 
   // 切换折叠函数

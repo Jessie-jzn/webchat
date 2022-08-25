@@ -1,0 +1,19 @@
+.avatar-img {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+}
+
+.sider-item {
+    padding: 8px;
+    width: 100%;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+}
+
+.sider-item:hover,
+.sider-item:active,
+.sider-item-active {
+    background: #f7f7f7;
+}
