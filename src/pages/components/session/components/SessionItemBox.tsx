@@ -1,12 +1,13 @@
 import type { FC } from 'react'
-import React,{useState,useEffect} from 'react'
+import React, { useState, useEffect } from 'react'
 import type { SessionItemType } from '../data.d'
 import './sessionItemBox.scss'
+import { getTimeDiff } from '@utils/config'
 interface SessionItemProps {
   item: SessionItemType
 }
-interface SessionItemTimeProps{
-  time:string
+interface SessionItemTimeProps {
+  time: string
 }
 
 const SessionItemBox: FC<SessionItemProps> = props => {
@@ -28,7 +29,7 @@ const SessionItemBox: FC<SessionItemProps> = props => {
 
 export default SessionItemBox
 
-const SiderBoxTimeUpdateBox = ({ time }:SessionItemTimeProps) => {
+const SiderBoxTimeUpdateBox = ({ time }: SessionItemTimeProps) => {
   const [update, setUpdate] = useState(1)
 
   // 每分钟更新时间
@@ -43,6 +44,6 @@ const SiderBoxTimeUpdateBox = ({ time }:SessionItemTimeProps) => {
   })
 
   return (
-    <span className='_ellipsis-text sider-user-time'>{getTimeDiff(time)}</span>
+    <span className='_ellipsis-text sider-user-time'>{getTimeDiff(+time)}</span>
   )
 }
